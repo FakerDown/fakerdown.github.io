@@ -1,1 +1,65 @@
-hello
+<head>
+    <style>
+        button {
+            border-radius: 30px;
+            font-family: sans-serif;
+            font-size: 15; 
+            height: 30;
+            background-color: rgb(195, 195, 195);
+            display:inline-block;
+        }
+        button-container {
+            display:flex;
+        }
+    </style>
+</head>
+<div class="button-container"><center>
+    <button id="rock" onclick="rockk ()">Rock</button> 
+    <button id="paper" onclick="paperr ()">Paper</button>
+    <button id="scissors" onclick="scissorr ()">Scissors</button> 
+</center></div>
+<div>
+    <img id="playerchoice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" alt = "Players Choice" height="100" width="100">
+    <p>players choice: </p>
+    <p id="playerchoicetext">?</p>
+    <img id="computerchoice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" alt = "Computers Choice" height="100" width="100">
+    <p>compoooters choice: </p>
+    <p id="computerchoicetext">?</p>
+</div>
+
+<script>
+    function rockk () {
+        document.getElementById("playerchoice").src="https://people.com/thmb/TFL2WRMj7LyUD1aGOacTDiVvLoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(299x0:301x2)/the-rock-pancakes-505a746c1cf94b9d8823b69a777b1949.jpg";
+        document.getElementById("playerchoicetext").textContent="rock"; 
+        computerchoice();
+    }
+    function paperr () {
+        document.getElementById("playerchoice").src="https://i.ytimg.com/vi/mZ8t9JrjFOA/maxresdefault.jpg";
+        document.getElementById("playerchoicetext").textContent="paper"; 
+        computerchoice();
+    }
+    function scissorr () {
+        document.getElementById("playerchoice").src="https://cdn.memes.com/up/76069801606042721/i/1614884584951.jpg"
+        document.getElementById("playerchoicetext").textContent="scissors"; 
+        computerchoice();
+    }
+    function computerchoice () {
+        var choicee = Math.floor(Math.random() * 3);
+        const guh = [
+        "https://people.com/thmb/TFL2WRMj7LyUD1aGOacTDiVvLoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(299x0:301x2)/the-rock-pancakes-505a746c1cf94b9d8823b69a777b1949.jpg",
+        "https://i.ytimg.com/vi/mZ8t9JrjFOA/maxresdefault.jpg",
+        "https://cdn.memes.com/up/76069801606042721/i/1614884584951.jpg"
+        ];
+        document.getElementById("computerchoice").src=guh[choicee]; 
+        if(choicee == 0) {
+            document.getElementById("computerchoicetext").textContent="rock";
+        }
+        else if(choicee == 1) {
+            document.getElementById("computerchoicetext").textContent="paper"; 
+        }
+        else{
+            document.getElementById("computerchoicetext").textContent="scissor"; 
+        }
+    }
+
+</script>
