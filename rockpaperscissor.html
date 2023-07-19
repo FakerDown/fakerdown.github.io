@@ -11,37 +11,108 @@
         button-container {
             display:flex;
         }
+        text-box {
+            font-weight: bold; 
+        }
+        img {
+            display: inline-block;
+        }
     </style>
 </head>
+<h6><center><pre> 
+    __                                                                                                               
+    /\ \                                                                     __                                       
+__  __  __    ___     ___\ \ \/'\       _____      __     _____   _ __    __         ____    ___ /\_\  ____    ____     ___   _ __   ____  
+/\ \/\ \/\ \  / __`\  /'___\ \ , <      /\ '__`\  /'__`\  /\ '__`\/\`'__\/'__`\      /',__\  /'___\/\ \/\_ ,`\ /\_ ,`\  / __`\/\`'__\/',__\ 
+\ \ \_/ \_/ \/\ \L\ \/\ \__/\ \ \\`\    \ \ \L\ \/\ \L\.\_\ \ \L\ \ \ \//\  __/     /\__, `\/\ \__/\ \ \/_/  /_\/_/  /_/\ \L\ \ \ \//\__, `\
+\ \___x___/'\ \____/\ \____\\ \_\ \_\   \ \ ,__/\ \__/.\_\\ \ ,__/\ \_\\ \____\    \/\____/\ \____\\ \_\/\____\ /\____\ \____/\ \_\\/\____/
+\/__//__/   \/___/  \/____/ \/_/\/_/    \ \ \/  \/__/\/_/ \ \ \/  \/_/ \/____/     \/___/  \/____/ \/_/\/____/ \/____/\/___/  \/_/ \/___/ 
+                     \ \_\             \ \_\                                                                          
+                      \/_/              \/_/                                                                          
+</pre></center></h6>
+
+<div><center>
+    <div style="display:inline-block; margin:50px" >
+        <img id="playerchoice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" alt = "Players Choice" height="100" width="100">
+        <p>players choice: </p>
+        <p id="playerchoicetext" class="text-box"><b>?</b></p>
+    </div>
+
+    <div style="display:inline-block">
+        <b>        V E R S U S        </b>
+    </div>
+
+    
+    <div style="display:inline-block; margin:50px">
+        <img id="computerchoice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" alt = "Computers Choice" height="100" width="100">
+        <p>compoooters choice: </p> 
+        <p id="computerchoicetext"><b>?</b> </p>
+    </div>    
+</center>
+</div>
+
+
 <div class="button-container"><center>
     <button id="rock" onclick="rockk ()">Rock</button> 
     <button id="paper" onclick="paperr ()">Paper</button>
     <button id="scissors" onclick="scissorr ()">Scissors</button> 
 </center></div>
-<div>
-    <img id="playerchoice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" alt = "Players Choice" height="100" width="100">
-    <p>players choice: </p>
-    <p id="playerchoicetext">?</p>
-    <img id="computerchoice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" alt = "Computers Choice" height="100" width="100">
-    <p>compoooters choice: </p>
-    <p id="computerchoicetext">?</p>
-</div>
 
 <script>
     function rockk () {
+        var str = new String("rock");
         document.getElementById("playerchoice").src="https://people.com/thmb/TFL2WRMj7LyUD1aGOacTDiVvLoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(299x0:301x2)/the-rock-pancakes-505a746c1cf94b9d8823b69a777b1949.jpg";
         document.getElementById("playerchoicetext").textContent="rock"; 
-        computerchoice();
+        document.getElementById("playerchoicetext").style.fontWeight = "bold";  
+        var choiceA = computerchoice();
+        
+        switch(choiceA) {
+            case 0:         //comp choosesrock
+                setTimeout(() => {alert("you tied haha");}, 200);
+                break;      //tie
+            case 1:         //comp choose paper
+                setTimeout(() => {alert("you lost imagine");}, 200);
+                break;      //loser
+            case 2:            //comp chooses scissor
+                setTimeout(() => {alert("you won W");}, 200);
+                break;      //win
+        }
     }
     function paperr () {
         document.getElementById("playerchoice").src="https://i.ytimg.com/vi/mZ8t9JrjFOA/maxresdefault.jpg";
         document.getElementById("playerchoicetext").textContent="paper"; 
-        computerchoice();
+        document.getElementById("playerchoicetext").style.fontWeight = "bold";  
+        var choiceA = computerchoice(); 
+          
+        switch(choiceA) {
+            case 0:         //comp choosesrock
+                setTimeout(() => {alert("you won!!111");}, 200);
+                break;      //tie
+            case 1:         //comp choose paper
+                setTimeout(() => {alert("you tied?? so bad");}, 200);
+                break;      //loser
+            case 2:            //comp chooses scissor
+                setTimeout(() => {alert("you lost imagine");}, 200);
+                break;      //win
+        } 
+        
     }
     function scissorr () {
         document.getElementById("playerchoice").src="https://cdn.memes.com/up/76069801606042721/i/1614884584951.jpg"
         document.getElementById("playerchoicetext").textContent="scissors"; 
-        computerchoice();
+        document.getElementById("playerchoicetext").style.fontWeight = "bold";  
+        var choiceA = computerchoice();
+        switch(choiceA) {
+            case 0:         //comp choosesrock
+                setTimeout(() => {alert("you lost!!111");}, 200);
+                break;      //tie
+            case 1:         //comp choose paper
+                setTimeout(() => {alert("you won now go touch grass");}, 200);
+                break;      //loser
+            case 2:            //comp chooses scissor
+                setTimeout(() => {alert("you tied lololololol");}, 200);
+                break;      //win
+        } 
     }
     function computerchoice () {
         var choicee = Math.floor(Math.random() * 3);
@@ -53,13 +124,17 @@
         document.getElementById("computerchoice").src=guh[choicee]; 
         if(choicee == 0) {
             document.getElementById("computerchoicetext").textContent="rock";
+            document.getElementById("computerchoicetext").style.fontWeight="bold";
         }
         else if(choicee == 1) {
             document.getElementById("computerchoicetext").textContent="paper"; 
+            document.getElementById("computerchoicetext").style.fontWeight="bold";
         }
         else{
             document.getElementById("computerchoicetext").textContent="scissor"; 
+            document.getElementById("computerchoicetext").style.fontWeight="bold";
         }
+        return choicee; 
     }
 
 </script>
